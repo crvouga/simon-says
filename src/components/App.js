@@ -1,6 +1,5 @@
 import {
   AppBar,
-  Avatar,
   Box,
   Button,
   Container,
@@ -22,14 +21,8 @@ const AttributionButton = () => {
     <Button
       variant="outlined"
       href={PERSONAL_URL}
-      startIcon={
-        <Avatar
-          style={{ width: "24px", height: "24px" }}
-          src={PERSONAL_URL + "personal-logo-dark.svg"}
-        />
-      }
     >
-      Chris Vouga
+     Built By Chris Vouga
     </Button>
   );
 };
