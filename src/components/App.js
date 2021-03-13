@@ -1,28 +1,34 @@
-import {
-  AppBar,
-  Box,
-  Button,
-  Container,
-  makeStyles,
-} from "@material-ui/core";
+import { Box, Button, Container, makeStyles } from "@material-ui/core";
 import CodeIcon from "@material-ui/icons/Code";
 import React from "react";
 import { Game } from "./Game";
 import { LoadingBackdrop } from "./LoadingBackdrop";
-
+import LinkIcon from "@material-ui/icons/Link";
 const useStyles = makeStyles((theme) => ({
-  appBarGutter: theme.mixins.toolbar,
+  buttons: {
+    width: "100%",
+    display: "flex",
+    justifyContent: "center",
+    paddingTop: theme.spacing(4),
+  },
+  button: {
+    margin: theme.spacing(0, 1),
+  },
 }));
 
 const PERSONAL_URL = `https://chrisvouga.dev/`;
 
 const AttributionButton = () => {
+  const classes = useStyles();
+
   return (
     <Button
+      className={classes.button}
       variant="outlined"
       href={PERSONAL_URL}
+      startIcon={<LinkIcon />}
     >
-     Built By Chris Vouga
+      Chris Vouga
     </Button>
   );
 };
@@ -30,8 +36,15 @@ const AttributionButton = () => {
 const SOURCE_CODE_URL = "https://github.com/crvouga/simon-says";
 
 const SourceCodeButton = (props) => {
+  const classes = useStyles();
+
   return (
-    <Button variant="outlined" href={SOURCE_CODE_URL} startIcon={<CodeIcon />}>
+    <Button
+      className={classes.button}
+      variant="outlined"
+      href={SOURCE_CODE_URL}
+      startIcon={<CodeIcon />}
+    >
       Source Code
     </Button>
   );
@@ -41,15 +54,11 @@ export const App = () => {
   const classes = useStyles();
   return (
     <React.Fragment>
-      <AppBar color="transparent" elevation={0}>
-        <Container maxWidth="xs">
-          <Box p={2} display="flex" justifyContent="space-between">
-            <AttributionButton />
-            <SourceCodeButton />
-          </Box>
-        </Container>
-      </AppBar>
-      <div className={classes.appBarGutter} />
+      <div className={classes.buttons}>
+        <AttributionButton />
+        <SourceCodeButton />
+      </div>
+
       <Box paddingY={4}>
         <Container maxWidth="xs">
           <Game />
