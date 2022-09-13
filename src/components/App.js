@@ -17,7 +17,7 @@ export const App = () => {
         display="flex"
         alignItems="center"
         justifyContent="center"
-        maxWidth={360}
+        maxWidth={500}
         margin="auto"
       >
         <Game />
