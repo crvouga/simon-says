@@ -23,7 +23,8 @@
   "scripts": {
     "start": "vite",
     "build": "vite build",
-    "preview": "docker build -t simon-says-app . && docker run -p 80:80 simon-says-app"
+    "preview": "vite preview",
+    "docker:preview": "docker build -t simon-says-app . && docker run -p 80:80 simon-says-app"
   },
   "eslintConfig": {
     "extends": "react-app"
